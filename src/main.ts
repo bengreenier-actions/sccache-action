@@ -46,7 +46,7 @@ export const download = async (releaseName: string, arch: string) => {
 
 export const setupRust = async () => {
   await exec(
-    `echo "[build]\nrustc-wrapper = \\"${process.env["RUNNER_TEMP"]}/sccache/sccache\\"" | tee ~/.cargo/config`
+    `echo "[build]\nrustc-wrapper = \\"${process.env["RUNNER_TEMP"]}/sccache/sccache\\"" | tee ${process.env.HOME}/.cargo/config`
   );
   writeFileSync(
     `${process.env.HOME}/.cargo/config`,
